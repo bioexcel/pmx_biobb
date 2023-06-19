@@ -1,88 +1,69 @@
-# pmx  Copyright Notice
-# ============================
-#
-# The pmx source code is copyrighted, but you can freely use and
-# copy it as long as you don't change or remove any of the copyright
-# notices.
-#
-# ----------------------------------------------------------------------
-# pmx is Copyright (C) 2006-2013 by Daniel Seeliger
-#
-#                        All Rights Reserved
-#
-# Permission to use, copy, modify, distribute, and distribute modified
-# versions of this software and its documentation for any purpose and
-# without fee is hereby granted, provided that the above copyright
-# notice appear in all copies and that both the copyright notice and
-# this permission notice appear in supporting documentation, and that
-# the name of Daniel Seeliger not be used in advertising or publicity
-# pertaining to distribution of the software without specific, written
-# prior permission.
-#
-# DANIEL SEELIGER DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
-# SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-# FITNESS.  IN NO EVENT SHALL DANIEL SEELIGER BE LIABLE FOR ANY
-# SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER
-# RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
-# CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
-# CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-# ----------------------------------------------------------------------
+"""pmx: a toolkit for free-energy calculation setup/analysis and
+biomolecular structure handling.
+
+For installation type the command::
+  python setup.py install
+or
+  pip install .
+"""
 
 from setuptools import setup, Extension
 import versioneer
 
 
 def readme():
-    with open('README.md') as f:
+    with open('README.rst') as f:
         return f.read()
-
 
 # ----------
 # Extensions
 # ----------
 pmx = Extension('pmx._pmx',
                 libraries=['m'],
-                include_dirs=['pmx/extensions/pmx'],
-                sources=['pmx/extensions/pmx/Geometry.c',
-                         'pmx/extensions/pmx/wrap_Geometry.c',
-                         'pmx/extensions/pmx/init.c',
-                         'pmx/extensions/pmx/Energy.c']
+                include_dirs=['src/pmx/extensions/pmx'],
+                sources=['src/pmx/extensions/pmx/Geometry.c',
+                         'src/pmx/extensions/pmx/wrap_Geometry.c',
+                         'src/pmx/extensions/pmx/init.c',
+                         'src/pmx/extensions/pmx/Energy.c']
                 )
 
 xdrio = Extension('pmx._xdrio',
                   libraries=['m'],
-                  include_dirs=['pmx/extensions/xdr'],
-                  sources=['pmx/extensions/xdr/xdrfile.c',
-                           'pmx/extensions/xdr/xdrfile_trr.c',
-                           'pmx/extensions/xdr/xdrfile_xtc.c']
+                  include_dirs=['src/pmx/extensions/xdr'],
+                  sources=['src/pmx/extensions/xdr/xdrfile.c',
+                           'src/pmx/extensions/xdr/xdrfile_trr.c',
+                           'src/pmx/extensions/xdr/xdrfile_xtc.c']
                   )
 extensions = [pmx, xdrio]
 
 # -----
 # Setup
 # -----
-setup(name='pmx',
-      version=versioneer.get_version(),
+setup(name='pmx_biobb',
+      version='4.0.0',
       cmdclass=versioneer.get_cmdclass(),
-      description='Python Toolbox structure file editing and writing simulation setup/analysis tools',
+      description='Toolkit for free-energy calculation setup/analysis '
+                  'and biomolecular structure handling',
       long_description=readme(),
       classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'Development Status :: Beta',
+        'License :: OSI Approved :: GNU General Public License (LGPL)',
         'Programming Language :: Python',
         'Intended Audience :: Science/Research',
         'Topic :: Scientific/Engineering',
-                  ],
-      author='Daniel Seeliger',
-      author_email='seeliger.biosoft@gmail.de',
-      url='https://github.com/deGrootLab/pmx',
-      download_url="https://github.com/deGrootLab/pmx/releases/latest",
-      license='GPL 3',
+      ],
+      url='https://github.com/deGrootLab/pmx/tree/develop',
+      author='Daniel Seeliger, Vytautas Gapsys',
+      author_email='d.seeliger@gmx.net, vytautas.gapsys@gmail.com',
+      license='LGPL-3.0',
       packages=['pmx'],
+      package_dir={'': 'src'},
       include_package_data=True,
       zip_safe=False,
       ext_modules=extensions,
-      python_requires=">=2.7, <3",
-      install_requires=['numpy>=1.14', 'scipy>=1.1', 'matplotlib>=2.2'],
-      entry_points={'console_scripts': ['pmx = pmx.scripts.cli:entry_point']}
+      setup_requires=["setuptools~=46.0.0"],
+      tests_require=['pytest'],
+      install_requires=['numpy', 'scipy', 'matplotlib'],
+      python_requires=">=3.7",
+      entry_points={'console_scripts': ['pmx = pmx.scripts.cli:entry_point']},
       )

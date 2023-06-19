@@ -1,5 +1,5 @@
-graft pmx
-include versioneer.py
-include pmx/_version.py
-include README.md
+graft src
+include README.rst
 include LICENSE
+include versioneer.py
+include src/pmx/_version.py
