@@ -23,18 +23,18 @@ def __sel_from_id_list( name, ids ):
         cmd.select( name, "ID %d" % ids[0] )
         for idx in ids[1:]:
             cmd.select( name, "%s or ID %d" % (name, idx) )
-            
+
 def load_ndx( fname = "index.ndx", names = []):
     if not os.path.isfile( fname ): return
     ndx_file = IndexFile( fname )
     if not names:
         names = ndx_file.names
     for name in names:
-        print name
+        print(name)
         if ndx_file.dic.has_key( name ):
             ids = ndx_file[name].ids
             __sel_from_id_list( name, ids )
-                
+
     cmd.deselect()
 
 cmd.extend("write_ndx",write_ndx)

@@ -51,7 +51,7 @@ def run_command(func, string):
         fp.close()
         sys.exit(1)
     else:
-        print "%-90s" % s, ': ok'
+        print("%-90s" % s, ': ok')
 
 
 def make_dir_tree(skip=4):
@@ -59,7 +59,7 @@ def make_dir_tree(skip=4):
     # catch all run?.? dirs
     dirs = glob('run?.?')
     for d in dirs:
-        print '\tPreparing run %s' % d
+        print('\tPreparing run %s' % d)
         os.chdir(d)
         os.mkdir('morphes')
         cmd = 'echo 0| trjconv -f traj.trr -s topol.tpr -skip %d -b 2001 -sep -o morphes/frame.gro' % skip
@@ -109,7 +109,7 @@ def make_run_input_files():
 
     dirs = glob('run?.?')
     for d in dirs:
-        print '\n\tPreparing run input files %s' % d
+        print('\n\tPreparing run input files %s' % d)
         mdp_file = None
         if d.split('.')[0][-1] == 'A':  # 0->1
             mdp_file = 'crooks_TI_runA.mdp'
@@ -193,26 +193,26 @@ def main(args):
     sc_alpha = args.sc_alpha
     sc_sigma = args.sc_sigma
 
-    print '\n\t Preparing FGTI runs in directory..: %s' % run_dir
-    print '\t Template mdp file to use............: %s' % mdp_file
-    print '\t Switching time to use...............: %8d ps' % int(sw_time)
-    print '\t Soft-core alpha to use..............: %8.3f' % sc_alpha
-    print '\t Soft-core sigma to use..............: %8.3f' % sc_sigma
-    print '\n'
+    print('\n\t Preparing FGTI runs in directory..: %s' % run_dir)
+    print('\t Template mdp file to use............: %s' % mdp_file)
+    print('\t Switching time to use...............: %8d ps' % int(sw_time))
+    print('\t Soft-core alpha to use..............: %8.3f' % sc_alpha)
+    print('\t Soft-core sigma to use..............: %8.3f' % sc_sigma)
+    print('\n')
 
 
     os.chdir(run_dir)
 
-    print '\t Preparing mdp input files........... '
+    print('\t Preparing mdp input files........... ')
 
     prepare_mdp_files(mdp_file, sw_time, sc_alpha, sc_sigma)
 
 
-    print '\t Preparing directory tree............ '
+    print('\t Preparing directory tree............ ')
     make_dir_tree(skip=args.skip)
     make_run_input_files()
     os.chdir(here)
-    print '\n\t............... DONE .................\n'
+    print('\n\t............... DONE .................\n')
 
 
 if __name__ == '__main__':
