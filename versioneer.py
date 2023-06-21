@@ -738,7 +738,7 @@ def render_pep440(pieces):
     get a tagged build and then dirty it, you'll get TAG+0.gHEX.dirty
 
     Exceptions:
-    1: no tags. git_describe was just HEX. 4.0.0
+    1: no tags. git_describe was just HEX. 4.0.1
     """
     if pieces["closest-tag"]:
         rendered = pieces["closest-tag"]
@@ -749,7 +749,7 @@ def render_pep440(pieces):
                 rendered += ".dirty"
     else:
         # exception #1
-        rendered = "4.0.0" %% (pieces["distance"],
+        rendered = "4.0.1" %% (pieces["distance"],
                                           pieces["short"])
         if pieces["dirty"]:
             rendered += ".dirty"
@@ -1239,7 +1239,7 @@ def render_pep440(pieces):
     get a tagged build and then dirty it, you'll get TAG+0.gHEX.dirty
 
     Exceptions:
-    1: no tags. git_describe was just HEX. 4.0.0
+    1: no tags. git_describe was just HEX. 4.0.1
     """
     if pieces["closest-tag"]:
         rendered = pieces["closest-tag"]
@@ -1250,7 +1250,7 @@ def render_pep440(pieces):
                 rendered += ".dirty"
     else:
         # exception #1
-        rendered = "4.0.0"
+        rendered = "4.0.1"
 
     return rendered
 
@@ -1399,7 +1399,7 @@ class VersioneerBadRootError(Exception):
 def get_versions(verbose=False):
     """Get the project version from whatever source is available."""
 
-    return {"version": "4.0.0", "full-revisionid": None,
+    return {"version": "4.0.1", "full-revisionid": None,
             "dirty": None, "error": "unable to compute version",
             "date": None}
 

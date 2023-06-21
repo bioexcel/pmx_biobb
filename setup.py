@@ -40,7 +40,7 @@ extensions = [pmx, xdrio]
 # Setup
 # -----
 setup(name='pmx_biobb',
-      version='4.0.0',
+      version='4.0.1',
       cmdclass=versioneer.get_cmdclass(),
       description='Toolkit for free-energy calculation setup/analysis '
                   'and biomolecular structure handling',
