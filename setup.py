@@ -40,7 +40,7 @@ extensions = [pmx, xdrio]
 # Setup
 # -----
 setup(name='pmx_biobb',
-      version='4.0.1',
+      version='4.0.2',
       cmdclass=versioneer.get_cmdclass(),
       description='Toolkit for free-energy calculation setup/analysis '
                   'and biomolecular structure handling',
@@ -62,5 +62,9 @@ setup(name='pmx_biobb',
       tests_require=['pytest'],
       install_requires=['numpy', 'scipy', 'matplotlib', 'rdkit'],
       python_requires=">=3.7",
-      entry_points={'console_scripts': ['pmx = pmx.scripts.cli:entry_point']},
+      entry_points={
+          "console_scripts": [
+              "pmx = pmx.scripts.cli:entry_point"
+          ]
+        },
       )

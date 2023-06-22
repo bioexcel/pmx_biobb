@@ -326,7 +326,7 @@ def render_pep440(pieces):
 <<<<<<< HEAD:src/pmx/_version.py
     1: no tags. git_describe was just HEX. 0+untagged.DISTANCE.gHEX[.dirty]
 =======
-    1: no tags. git_describe was just HEX. 4.0.1
+    1: no tags. git_describe was just HEX. 4.0.2
 >>>>>>> develop:pmx/extensions/pmx/_version.py
     """
     if pieces["closest-tag"]:
@@ -341,7 +341,7 @@ def render_pep440(pieces):
 <<<<<<< HEAD:src/pmx/_version.py
         rendered = "0+untagged.%d.g%s" % (pieces["distance"],
 =======
-        rendered = "4.0.1" % (pieces["distance"],
+        rendered = "4.0.2" % (pieces["distance"],
 >>>>>>> develop:pmx/extensions/pmx/_version.py
                                           pieces["short"])
         if pieces["dirty"]:
