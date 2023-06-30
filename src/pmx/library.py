@@ -271,8 +271,6 @@ _aacids_ext_charmm = {
     'F':'PHE',
     'P':'PRO',
     'S':'SER',
-    'SP1':'SP1', # phosphoserine
-    'SP2':'SP2', # phosphoserine
     'T':'THR',
     'W':'TRP',
     'Y':'TYR',
@@ -348,114 +346,6 @@ _protein_residues = set([
     'NLYP','NPRO','NCYN','NCYX','NMET','CALA','CGLY','CSER','CTHR',
     'CLEU','CILE','CVAL','CASN','CGLN','CARG','CHID','CHIE','CHIP',
     'CTRP','CPHE','CTYR','CGLU','CASP','CLYP','CPRO','CCYN','CCYX',
-<<<<<<< HEAD:src/pmx/extensions/pmx/library.py
-<<<<<<< HEAD:pmx/library.py
-    'CMET','SEP','HISH','HIS1','HISD','HISE','GLUH',
-    'SP1','SP2', # phosphoserines in charmm36
-    )
-
-_one_letter = {
-    'SP1':'SP1', # phosphoserine in charmm36
-    'SP2':'SP2', # phosphoserine in charmm36
-    'ALA':'A',
-    'ARG':'R',
-    'ASN':'N',
-    'ASP':'D',
-    'ASPP':'D',
-    'ASPH':'D',
-    'CYS':'C',
-    'CYS2':'C',
-    'CYN':'C',
-    'CYX':'C',
-    'CYM':'C',
-    'GLU':'E',
-    'GLUP':'E',
-    'GLN':'Q',
-    'GLY':'G',
-    'HIS':'H',
-    'HIE':'H',
-    'HSE':'H',
-    'HIP':'H',
-    'HSP':'H',
-    'HID':'H',
-    'HSD':'H',
-    'ILE':'I',
-    'LEU':'L',
-    'LYS':'K',
-    'LSN':'K',
-    'LYSH':'K',
-    'LYP':'K',
-    'MET':'M',
-    'PHE':'F',
-    'PRO':'P',
-    'SER':'S',
-    'THR':'T',
-    'TRP':'W',
-    'TYR':'Y',
-    'VAL':'V',
-    'NALA':'A',
-    'NGLY':'G',
-    'NSER':'S',
-    'NTHR':'T',
-    'NLEU':'L',
-    'NILE':'I',
-    'NVAL':'V',
-    'NASN':'N',
-    'NGLN':'Q',
-    'NARG':'R',
-    'NHID':'H',
-    'NHIE':'H',
-    'NHIP':'H',
-    'NTRP':'W',
-    'NPHE':'F',
-    'NTYR':'Y',
-    'NGLU':'E',
-    'NASP':'D',
-    'NLYP':'K',
-    'NPRO':'P',
-    'NCYN':'C',
-    'NCYX':'C',
-    'NMET':'M',
-    'CALA':'A',
-    'CGLY':'G',
-    'CSER':'S',
-    'CTHR':'T',
-    'CLEU':'L',
-    'CILE':'I',
-    'CVAL':'V',
-    'CASN':'N',
-    'CGLN':'Q',
-    'CARG':'R',
-    'CHID':'H',
-    'CHIE':'H',
-    'CHIP':'H',
-    'CTRP':'W',
-    'CPHE':'F',
-    'CTYR':'Y',
-    'CGLU':'E',
-    'CASP':'D',
-    'CLYP':'K',
-    'CPRO':'P',
-    'CCYN':'C',
-    'CCYX':'C',
-    'CMET':'M'
-}
-=======
-    'CMET','SEP','HISH','HIS1','HISE','GLUH'
-    ])
-
-_pmx_mut_residues = set(pmx_aamut_pairs(lst=_ext_one_letter.values()))
-
-_protein_residues_incl_pmx_mut = _protein_residues.union(_pmx_mut_residues)
-
-# -------------
-# Nucleic Acids
-# -------------
-_dna_residues = set(['DA', 'DT', 'DC', 'DG', 'DA3', 'DT3', 'DC3', 'DG3', 'DA5',
-                     'DT5', 'DC5', 'DG5'])
->>>>>>> develop:pmx/extensions/pmx/library.py
-
-=======
     'CMET','SEP','HISH','HIS1','HISE','GLUH'
     ])
 
@@ -469,7 +359,6 @@ _protein_residues_incl_pmx_mut = _protein_residues.union(_pmx_mut_residues)
 _dna_residues = set(['DA', 'DT', 'DC', 'DG', 'DA3', 'DT3', 'DC3', 'DG3', 'DA5',
                      'DT5', 'DC5', 'DG5'])
 
->>>>>>> develop:src/pmx/library.py
 _rna_residues = set(['RA', 'RU', 'RC', 'RG', 'RA3', 'RU3', 'RC3', 'RG3', 'RA5',
                      'RU5', 'RC5', 'RG5'])
 
@@ -495,7 +384,6 @@ _perturbed_rna = set(['RAU', 'RAC', 'RAG', 'RCU', 'RCG', 'RCA',
                       'R3K', 'R3L', 'R3M', 'R3N', 'R3O', 'R3P',
                       'R3R', 'R3S', 'R3T', 'R3X', 'R3Y', 'R3Z',
                       ])
-<<<<<<< HEAD:src/pmx/extensions/pmx/library.py
 
 _perturbed_nucleotides = _perturbed_dna.union(_perturbed_rna)
 
@@ -518,30 +406,6 @@ _ions = set([
 
 _water = set(['SOL', 'HOH', 'HO4'])
 
-=======
-
-_perturbed_nucleotides = _perturbed_dna.union(_perturbed_rna)
-
-_dna_residues_incl_pmx_mut = _dna_residues.union(_perturbed_dna)
-_rna_residues_incl_pmx_mut = _rna_residues.union(_perturbed_rna)
-
-# ------------
-# Solvent/Ions
-# ------------
-_ions = set([
-    'CA', 'Ca',
-    'MG', 'Mg',
-    'FE', 'Fe',
-    'MN', 'Mn',
-    'K', 'K+',
-    'CL', 'Cl', 'ClJ', 'Cl-', 'CL-', 'ClS',
-    'NA', 'Na', 'Na+', 'NaJ', 'NA+', 'NaS',
-    'ZN', 'Zn', 'Zn+'
-    ])
-
-_water = set(['SOL', 'HOH', 'HO4'])
-
->>>>>>> develop:src/pmx/library.py
 _water_and_ions = _water.union(_ions)
 
 
@@ -2035,10 +1899,6 @@ _aliases = {
                 'HB1':'1HB',
                 'HB2':'2HB',
         },
-        'HISD': {
-                'HB1':'1HB',
-                'HB2':'2HB',
-        },
 	'HSE': {
 		'HB1':'1HB',
 		'HB2':'2HB',
@@ -2379,16 +2239,6 @@ _aliases = {
 		'HB1':'1HB',
 		'HB2':'2HB',
 		'HG1':'1HG',
-	},
-        # phosphoserine in charmm36
-	'SP1': {
-		'HB1':'1HB',
-		'HB2':'2HB',
-	},
-        # phosphoserine in charmm36
-	'SP2': {
-		'HB1':'1HB',
-		'HB2':'2HB',
 	},
 	'NSER': {
                  'H1':'1H',
@@ -4915,67 +4765,6 @@ _aa_dihedrals = {
 		['HB2', 'CB', 'OG', 'HG', 1, -1] ,
 		['C', 'CA', 'CB', 'OG', 1, -1] ,
 	     ),
-        # phosphoserine in charmm36
-	'SP1' : (
-		['N', 'CA', 'CB', 'HB1', 1, -1] ,
-		['N', 'CA', 'CB', 'HB2', 1, -1] ,
-		['N', 'CA', 'CB', 'OG', 1, 1] ,
-		['N', 'CA', 'C', 'O', 1, 0] ,
-		['H', 'N', 'CA', 'HA', 1, -1] ,
-		['H', 'N', 'CA', 'CB', 1, -1] ,
-		['C', 'CA', 'N', 'H', 1, -1] ,
-		['CA', 'CB', 'OG', 'PD', 1, 2] ,
-		['HA', 'CA', 'CB', 'HB1', 1, -1] ,
-		['HA', 'CA', 'CB', 'HB2', 1, -1] ,
-		['HA', 'CA', 'CB', 'OG', 1, -1] ,
-		['HA', 'CA', 'C', 'O', 1, -1] ,
-		['CB', 'CA', 'C', 'O', 1, -1] ,
-		['C', 'CA', 'CB', 'HB1', 1, -1] ,
-		['HB1', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'HB2', 1, -1] ,
-		['HB2', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'OG', 1, -1] ,
-		['CB', 'OG', 'PD', 'OE1', 1, 3] ,
-		['CB', 'OG', 'PD', 'OE2', 1, -1] ,
-		['CB', 'OG', 'PD', 'OE', 1, -1] ,
-		['C', 'CA', 'CB', 'HB1', 1, -1] ,
-		['HB1', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'HB2', 1, -1] ,
-		['HB2', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'CG', 1, -1] ,
-		['OG', 'PD', 'OE', 'HE', 1, 4] ,
-		['O1E', 'PD', 'OE', 'HE', 1, -1] ,
-		['O2E', 'PD', 'OE', 'HE', 1, -1] ,
-	     ),
-        # phosphoserine in charmm36
-	'SP2' : (
-		['N', 'CA', 'CB', 'HB1', 1, -1] ,
-		['N', 'CA', 'CB', 'HB2', 1, -1] ,
-		['N', 'CA', 'CB', 'OG', 1, 1] ,
-		['N', 'CA', 'C', 'O', 1, 0] ,
-		['H', 'N', 'CA', 'HA', 1, -1] ,
-		['H', 'N', 'CA', 'CB', 1, -1] ,
-		['C', 'CA', 'N', 'H', 1, -1] ,
-		['CA', 'CB', 'OG', 'PD', 1, 2] ,
-		['HA', 'CA', 'CB', 'HB1', 1, -1] ,
-		['HA', 'CA', 'CB', 'HB2', 1, -1] ,
-		['HA', 'CA', 'CB', 'OG', 1, -1] ,
-		['HA', 'CA', 'C', 'O', 1, -1] ,
-		['CB', 'CA', 'C', 'O', 1, -1] ,
-		['C', 'CA', 'CB', 'HB1', 1, -1] ,
-		['HB1', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'HB2', 1, -1] ,
-		['HB2', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'OG', 1, -1] ,
-		['CB', 'OG', 'PD', 'OE1', 1, 3] ,
-		['CB', 'OG', 'PD', 'OE2', 1, -1] ,
-		['CB', 'OG', 'PD', 'OE', 1, -1] ,
-		['C', 'CA', 'CB', 'HB1', 1, -1] ,
-		['HB1', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'HB2', 1, -1] ,
-		['HB2', 'CB', 'OG', 'PD', 1, -1] ,
-		['C', 'CA', 'CB', 'CG', 1, -1] ,
-	     ),
 	'SEP' : (
 		['N', 'CA', 'CB', 'HB1', 1, -1] ,
 		['N', 'CA', 'CB', 'HB2', 1, -1] ,
@@ -4998,14 +4787,7 @@ _aa_dihedrals = {
 		['CB', 'OG', 'P', 'O1P', 1, 3] ,
 		['CB', 'OG', 'P', 'O2P', 1, -1] ,
 		['CB', 'OG', 'P', 'O3P', 1, -1] ,
-<<<<<<< HEAD:src/pmx/extensions/pmx/library.py
-<<<<<<< HEAD:pmx/library.py
-=======
 
->>>>>>> develop:pmx/extensions/pmx/library.py
-=======
-
->>>>>>> develop:src/pmx/library.py
 	     ),
 	'THR' : (
 		['N', 'CA', 'CB', 'HB', 1, -1] ,
@@ -5299,7 +5081,6 @@ _mol2_types = {
     'O':['O.2',0],
     },
     'HIP':
-<<<<<<< HEAD:src/pmx/extensions/pmx/library.py
     {
     'N':['N.am',0],
     'CA':['C.3',0],
@@ -5313,8 +5094,6 @@ _mol2_types = {
     'O':['O.2',0],
     },
     'HSP':
-=======
->>>>>>> develop:src/pmx/library.py
     {
     'N':['N.am',0],
     'CA':['C.3',0],
@@ -5341,19 +5120,6 @@ _mol2_types = {
     'O':['O.2',0],
     },
     'HIS1':
-    {
-    'N':['N.am',0],
-    'CA':['C.3',0],
-    'CB':['C.3',0],
-    'CG':['C.2',0],
-    'ND1':['N.2',0],
-    'CE1':['C.2',0],
-    'NE2':['N.pl3',0],
-    'CD2':['C.2',0],
-    'C':['C.2',0],
-    'O':['O.2',0],
-    },
-    'HISD':
     {
     'N':['N.am',0],
     'CA':['C.3',0],
@@ -5476,32 +5242,6 @@ _mol2_types = {
     'CA':['C.3',0],
     'CB':['C.3',0],
     'OG':['O.3',0],
-    'C':['C.2',0],
-    'O':['O.2',0],
-    },
-    'SP1': # phosphoserine in charmm36
-    {
-    'N':['N.am',0],
-    'CA':['C.3',0],
-    'CB':['C.3',0],
-    'OG':['O.3',0],
-    'PD':['P.3',0],
-    'OE1':['O.2',0],
-    'OE2':['O.3',0],
-    'OE':['O.3',0],
-    'C':['C.2',0],
-    'O':['O.2',0],
-    },
-    'SP2': # phosphoserine in charmm36
-    {
-    'N':['N.am',0],
-    'CA':['C.3',0],
-    'CB':['C.3',0],
-    'OG':['O.3',0],
-    'PD':['P.3',0],
-    'OE1':['O.2',0],
-    'OE2':['O.3',0],
-    'OE':['O.3',0],
     'C':['C.2',0],
     'O':['O.2',0],
     },
