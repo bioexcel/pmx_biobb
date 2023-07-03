@@ -46,8 +46,6 @@ setup(name='pmx_biobb',
                   'and biomolecular structure handling',
       long_description=readme(),
       classifiers=[
-        'Development Status :: Beta',
-        'License :: OSI Approved :: GNU General Public License (LGPL)',
         'Programming Language :: Python',
         'Intended Audience :: Science/Research',
         'Topic :: Scientific/Engineering',
