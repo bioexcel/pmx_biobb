@@ -46,7 +46,7 @@ setup(name='pmx_biobb',
       long_description_content_type='text/x-rst',
       long_description=readme(),
       classifiers=[
-          'Programming Language :: Python :: 3.10',
+          'Programming Language :: Python',
           'Intended Audience :: Science/Research',
           'Topic :: Scientific/Engineering',
       ],
