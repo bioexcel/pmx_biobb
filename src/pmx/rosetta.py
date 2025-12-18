@@ -15,7 +15,7 @@ from .resselection import InteractiveSelection
 from pmx import resselection
 from pmx.parser import parseList, kickOutComments
 from .utils import create_folder,remove_netmount
-from pmx import jobscripts
+from pmx import jobscript
 
 # =======
 # Helper functions
@@ -274,6 +274,7 @@ class FlexDDG(Rosetta):
             talaris = '\'-restore_pre_talaris_2013_behavior\','
 
         for sel,folder in zip(self.sele,self.folders):
+            relProtFile = os.path.relpath(os.path.abspath(self.protFile),os.path.abspath(folder))
             xmlprotocol = './ddG-backrub.xml'
             fname = folder+'/run.py'
             fp = open(fname,'w')
@@ -361,7 +362,7 @@ if __name__ == '__main__':
            abs_score_convergence_thresh=self.abs_score_convergence_thresh,
            number_backrub_trials=self.number_backrub_trials,
            backrub_trajectory_stride=self.backrub_trajectory_stride,talaris=talaris,
-           protFile=remove_netmount(self.protFile))
+           protFile=relProtFile)
        
             fp.write( runner )
             fp.close()
