@@ -1405,7 +1405,7 @@ def get_versions(verbose=False):
     Returns dict with two keys: 'version' and 'full'.
     """
 
-    return {"version": "5.2.1", "full-revisionid": "5.2.1",
+    return {"version": "5.2.2", "full-revisionid": "5.2.2",
             "dirty": None, "error": None,
             "date": None}
 
